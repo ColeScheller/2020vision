@@ -1,0 +1,86 @@
+<grip:Pipeline>
+  <sources>
+    <grip:MultiImageFile>
+      <property name="path[5]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-Far-ProtectedZone.jpg"/>
+      <property name="numImages" value="6"/>
+      <property name="path[0]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-156in-Left.jpg"/>
+      <property name="path[1]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-180in-Center.jpg"/>
+      <property name="index" value="5"/>
+      <property name="path[2]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-224in-Center.jpg"/>
+      <property name="path[3]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-228in-ProtectedZone.jpg"/>
+      <property name="path[4]" value="C:\Users\Dreadbot\Documents\2020vision\targets\BlueGoal-330in-ProtectedZone.jpg"/>
+    </grip:MultiImageFile>
+  </sources>
+  <steps>
+    <grip:Step name="HSL Threshold">
+      <grip:Input step="0" socket="0"/>
+      <grip:Input step="0" socket="1">
+        <value>
+          <double>72.55395683453237</double>
+          <double>81.70648464163823</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="0" socket="2">
+        <value>
+          <double>205.0</double>
+          <double>255.0</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="0" socket="3">
+        <value>
+          <double>55.60251798561152</double>
+          <double>215.0</double>
+        </value>
+      </grip:Input>
+      <grip:Output step="0" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="Find Lines">
+      <grip:Input step="1" socket="0"/>
+      <grip:Output step="1" socket="0" previewed="false"/>
+    </grip:Step>
+    <grip:Step name="Filter Lines">
+      <grip:Input step="2" socket="0"/>
+      <grip:Input step="2" socket="1">
+        <value>10.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="2">
+        <value>
+          <int>0</int>
+          <double>360.0</double>
+        </value>
+      </grip:Input>
+      <grip:Output step="2" socket="0" previewed="true"/>
+    </grip:Step>
+  </steps>
+  <connections>
+    <grip:Connection>
+      <grip:Output step="0" socket="0" previewed="true"/>
+      <grip:Input step="1" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="1" socket="0" previewed="false"/>
+      <grip:Input step="2" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output source="0" socket="0" previewed="true"/>
+      <grip:Input step="0" socket="0"/>
+    </grip:Connection>
+  </connections>
+  <settings>
+    <teamNumber>0</teamNumber>
+    <publishAddress>roboRIO-0-FRC.local</publishAddress>
+    <deployAddress>roboRIO-0-FRC.local</deployAddress>
+    <deployDir>/home/lvuser</deployDir>
+    <deployUser>lvuser</deployUser>
+    <deployJavaHome>/usr/local/frc/JRE/</deployJavaHome>
+    <deployJvmOptions>-Xmx50m -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError -XX:MaxNewSize=16m</deployJvmOptions>
+  </settings>
+  <codeGenerationSettings>
+    <language>Java</language>
+    <className>GripPipeline</className>
+    <implementWpilibPipeline>false</implementWpilibPipeline>
+    <saveDir>C:\Users\Dreadbot\GRIP</saveDir>
+    <packageName></packageName>
+    <moduleName>grip</moduleName>
+  </codeGenerationSettings>
+</grip:Pipeline>
