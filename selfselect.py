@@ -28,7 +28,7 @@ rho = 1
 theta = np.pi / 180
 threshold = 150
 min_line_length = 300
-max_line_gap = 100
+max_line_gap = 500
 
 #Just color lists so that the lines can alternate colors
 loopclrs = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 0, 255), (255, 255, 255)]
