@@ -18,7 +18,7 @@ low_thresh = 50
 high_thresh = 150
 
 #Iterations for the Erode function
-erode_iters = 7
+erode_iters = 1
 
 #Counting loops
 counter = 0
@@ -28,7 +28,7 @@ rho = 1
 theta = np.pi / 180
 threshold = 150
 min_line_length = 300
-max_line_gap = 500
+max_line_gap = 100
 
 #Just color lists so that the lines can alternate colors
 loopclrs = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 0, 255), (255, 255, 255)]
